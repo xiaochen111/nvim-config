@@ -14,7 +14,7 @@ require 'diffview'.setup {
   },
   file_panel = {
     position = "left", -- One of 'left', 'right', 'top', 'bottom'
-    width = 35, -- Only applies when position is 'left' or 'right'
+    width = 50, -- Only applies when position is 'left' or 'right'
     height = 10, -- Only applies when position is 'top' or 'bottom'
     listing_style = "tree", -- One of 'list' or 'tree'
     tree_options = { -- Only applies when listing_style is 'tree'
@@ -68,7 +68,10 @@ require 'diffview'.setup {
       ["R"]             = cb("refresh_files"), -- Update stats and entries in the file list.
       ["<tab>"]         = cb("select_next_entry"),
       ["<s-tab>"]       = cb("select_prev_entry"),
-      ["gf"]            = cb("goto_file"),
+      -- 在git中直接打开文件
+      ["gf"]            = cb("goto_file_edit"),
+      ["e"]             = cb("goto_file_edit"),
+      -- ["gf"]            = cb("goto_file"),
       ["<C-w><C-f>"]    = cb("goto_file_split"),
       ["<C-w>gf"]       = cb("goto_file_tab"),
       ["i"]             = cb("listing_style"), -- Toggle between 'list' and 'tree' views

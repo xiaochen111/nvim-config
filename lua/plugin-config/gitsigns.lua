@@ -69,8 +69,12 @@ gitsigns.setup {
     map('n', '<leader>hR', '<cmd>Gitsigns reset_buffer<CR>')
     map('n', '<leader>hb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
     map('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<CR>')
-    --查看当前文件修改与之前的变化
-    map('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>')
+    --查看当前文件修改在当前分支与之前的变化 当前分支 是指 在生成当前分支后的所有文件的变化
+    map('n', '<leader>hd', ':DiffviewFileHistory')
+    -- 查看当前整个项目的修改记录
+    map('n', '<leader>hp', '<cmd>DiffviewOpen<CR>')
+
+    -- map('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>')
     map('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
     map('n', '<leader>td', '<cmd>Gitsigns toggle_deleted<CR>')
     --

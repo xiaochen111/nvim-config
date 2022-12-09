@@ -1,3 +1,4 @@
+-- 本配置中 <A 配置的键位 都可以用command来代替
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -80,7 +81,7 @@ local pluginKeys = {}
 
 -- nvim-rree
 -- alt + m 键打开关闭tree
-map('n', '<A-m>', ':NvimTreeToggle<CR>', opt)
+-- map('n', '<A-m>', ':NvimTreeToggle<CR>', opt)
 map('n', '<leader>a', ':NvimTreeOpen<CR>', opt)
 -- 列表快捷键
 pluginKeys.nvimTreeList = {
@@ -124,9 +125,10 @@ pluginKeys.telescopeList = {
 }
 -- Telescope
 -- 查找文件
-map('n', '<C-p>', ':Telescope find_files<CR>', opt)
+map('n', '<A-p>', ':Telescope find_files<CR>', opt)
+-- map('n', '<A-p>', '<cmd>Telescope oldfiles<cr>', opt)
 -- 全局搜索
-map('n', '<C-f>', ':Telescope live_grep<CR>', opt)
+map('n', '<leader>f', ':Telescope live_grep<CR>', opt)
 -- 搜索当前文档里面的变量
 map('n', '<leader>s', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>', opt)
 
@@ -150,8 +152,7 @@ pluginKeys.mapLSP = function(mapbuf)
   --]]
   mapbuf('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', opt)
   -- code action 代码错误自动修改
-  -- mapbuf('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opt)
-  mapbuf('n', '<C-m>', '<cmd>Lspsaga code_action<CR>', opt)
+  mapbuf('n', '<A-m>', '<cmd>Lspsaga code_action<CR>', opt)
   -- go xx
   mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
   -- 查看定义在哪里引用 gf
@@ -159,9 +160,8 @@ pluginKeys.mapLSP = function(mapbuf)
   -- mapbuf('n', 'gu', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
   mapbuf('n', 'gh', '<cmd>Lspsaga hover_doc<cr>', opt)
   -- mapbuf('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>', opt)
-  -- diagnostic
-  -- 查看错误 因和git自定义的快捷键重合 先放弃这个配置
-  -- mapbuf('n', 'gp', '<cmd>Lspsaga show_line_diagnostics<CR>', opt)
+  -- 查看错误
+  mapbuf('n', 'gl', '<cmd>Lspsaga show_line_diagnostics<CR>', opt)
   -- 调整到下一个错误
   mapbuf('n', '<leader>j', '<cmd>Lspsaga diagnostic_jump_next<cr>', opt)
   -- 调整到下一个错误
@@ -200,7 +200,6 @@ pluginKeys.cmp = function(cmp)
     -- -- 下一个
     -- ["<C-j>"] = cmp.mapping.select_next_item(),
     -- 出现补全 强制出现补全 智能提示
-    -- ["<A-.>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<A-i>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     -- 取消
     ["<A-,>"] = cmp.mapping({
@@ -300,6 +299,8 @@ map("n", "s", '\"_s', opt)
 map('n', 'f', "<cmd>HopChar1<CR>", {})
 
 
+map("n", "}", '%', opt)
+
 -- save buffer
 map('n', '<C-s>', ':w<cr>', opt)
 map('i', '<C-s>', '<Esc>:w<cr>', opt)
@@ -310,7 +311,6 @@ map('i', '<C-s>', '<Esc>:w<cr>', opt)
 --
 -- -- reset修改的光标在的位置
 -- map('n', 'gr', ':Gitsigns reset_hunk<CR>',opt)
---
 -- tips ctrl+$ 唤起弹出成命令行
 
 return pluginKeys
