@@ -75,6 +75,8 @@ map("n", "<leader>q", ":qa!<CR>", opt)
 -- 上下移动选中文本
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
+map("v", '<leader>l', '$', opt)
+map("v", '<leader>h', '^', opt)
 
 -- 插件快捷键
 local pluginKeys = {}
@@ -311,6 +313,6 @@ map('i', '<C-s>', '<Esc>:w<cr>', opt)
 --
 -- -- reset修改的光标在的位置
 -- map('n', 'gr', ':Gitsigns reset_hunk<CR>',opt)
--- tips ctrl+$ 唤起弹出成命令行
+-- tips ctrl+$ 或者 ctrl + \ 都能唤起弹出成命令行
 
 return pluginKeys

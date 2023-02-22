@@ -41,3 +41,7 @@ require('plugin-config.indent-blankline')
 --require('lsp.formatter')
 -- 自动化格式  这个可能不需要
 -- require('lsp.null-ls')
+
+
+
+-- 插件若安装失败 可以在本地直接clone下来 本地的位置在/Users/chenhaibo/.local/share/nvim/site/pack/packer/start

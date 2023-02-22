@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/Users/chenhaibo/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://gitcode.net/mirrors/sindrets/diffview.nvim"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/Users/chenhaibo/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://gitcode.net/mirrors/mhartington/formatter.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/chenhaibo/.local/share/nvim/site/pack/packer/start/friendly-snippets",
